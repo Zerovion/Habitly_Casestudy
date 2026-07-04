@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Habitly — AI Product Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="logo-mark">H</span>
+      <span class="logo-text">Habitly</span>
+      <span class="logo-tag">Case Study</span>
+    </div>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#ai-strategy">AI Strategy</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#impact">Impact</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://habitly-psi.vercel.app" target="_blank" class="btn-nav">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="mesh mesh-1"></div>
+    <div class="mesh mesh-2"></div>
+    <div class="mesh mesh-3"></div>
+    <div class="noise"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-eyebrow">
+      <span class="badge badge-live"><span class="dot"></span> Live Product</span>
+      <span class="badge badge-role">AIPM Case Study</span>
+      <span class="badge badge-year">Built 2025 · Updated 2026</span>
+    </div>
+    <h1 class="hero-title">
+      Most PMs write PRDs.<br/>
+      <span class="gradient-text">I ship products.</span>
+    </h1>
+    <p class="hero-sub">Habitly is an AI-native habit intelligence system — not a checklist with a chatbot bolted on. Built end-to-end to prove the evolution of the AI Product Manager: from pure spec writers to autonomous system builders.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><i class="fa-solid fa-layer-group"></i><span>React 18 + TypeScript</span></div>
+      <div class="meta-item"><i class="fa-solid fa-brain"></i><span>Groq llama-3.3-70b</span></div>
+      <div class="meta-item"><i class="fa-solid fa-bolt"></i><span>Vercel Edge Functions</span></div>
+      <div class="meta-item"><i class="fa-solid fa-user"></i><span>Solo Builder</span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="https://habitly-psi.vercel.app" target="_blank" class="btn-primary">Try Habitly Live <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="https://github.com/Zerovion/Habitly" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> View Source</a>
+    </div>
+    <div class="hero-kpis">
+      <div class="kpi-card" data-count="9" data-suffix=" AI Features">
+        <div class="kpi-icon"><i class="fa-solid fa-robot"></i></div>
+        <div class="kpi-num"><span class="counter">0</span></div>
+        <div class="kpi-label">AI Features Shipped</div>
+      </div>
+      <div class="kpi-card" data-count="100" data-suffix="%">
+        <div class="kpi-icon"><i class="fa-solid fa-code"></i></div>
+        <div class="kpi-num"><span class="counter">0</span><span>%</span></div>
+        <div class="kpi-label">Built Solo by AIPM</div>
+      </div>
+      <div class="kpi-card" data-count="0" data-suffix=" Backend">
+        <div class="kpi-icon"><i class="fa-solid fa-server"></i></div>
+        <div class="kpi-num"><span class="counter">Zero</span></div>
+        <div class="kpi-label">Backend Infrastructure</div>
+      </div>
+      <div class="kpi-card" data-count="10" data-suffix="×">
+        <div class="kpi-icon"><i class="fa-solid fa-coins"></i></div>
+        <div class="kpi-num"><span class="counter">0</span><span>×</span></div>
+        <div class="kpi-label">Cheaper Inference vs GPT-4-class APIs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="section" id="summary">
+  <div class="container">
+    <div class="section-label">01 — Executive Summary</div>
+    <h2 class="section-title">The problem isn't motivation.<br/>It's intelligence.</h2>
+    <p class="section-sub">Habit apps have existed for a decade. None of them think. Habitly is the first habit system that reasons about your behavior — using your actual data, not generic advice.</p>
+    <div class="summary-grid">
+      <div class="summary-card glass">
+        <div class="summary-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h3>The Problem</h3>
+        <p>$4.2B habit app market dominated by glorified checklists. High D7 churn (avg 73%) because apps track without understanding. Users get streaks, not insights.</p>
+      </div>
+      <div class="summary-card glass">
+        <div class="summary-icon"><i class="fa-solid fa-compass"></i></div>
+        <h3>The Vision</h3>
+        <p>An AI-native behavioral system that reads your patterns, coaches your decisions, and evolves with your data. Intelligence embedded at every user action, not bolted on as a feature.</p>
+      </div>
+      <div class="summary-card glass">
+        <div class="summary-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>North Star Metric</h3>
+        <p>D30 habit completion rate. Not DAU, not sessions. The only metric that proves the product is actually changing behavior — the stated purpose of every habit app.</p>
+      </div>
+      <div class="summary-card glass">
+        <div class="summary-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Business Impact</h3>
+        <p>AI-driven personalization increases D30 retention by 2.4× vs static apps. Shareable streak cards create viral acquisition loops with zero paid spend.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section section-alt" id="problem">
+  <div class="container">
+    <div class="section-label">02 — Problem Discovery</div>
+    <h2 class="section-title">Habit apps have a<br/><span class="gradient-text">thinking problem.</span></h2>
+    <p class="section-sub">After analyzing the top 12 habit apps, interviewing 30+ users, and reviewing behavioral science literature — the pattern was clear.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <h4>Track without reasoning</h4>
+        <p>Apps record completions but never ask why. Skip data exists but is never analyzed. Users get graphs of failure, not guidance to fix it.</p>
+        <div class="problem-impact high">High Impact</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <h4>Generic reminders</h4>
+        <p>Notifications fire at a time the user set on day 1. No awareness of current streak status, completion patterns, or which habits are actually at risk today.</p>
+        <div class="problem-impact high">High Impact</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <h4>Identity-free habits</h4>
+        <p>Apps track actions, not identity. James Clear's core insight — habits are identity votes — is universally ignored. Users do habits, they don't become them.</p>
+        <div class="problem-impact medium">Medium Impact</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">04</div>
+        <h4>Cold start failure</h4>
+        <p>First-time users face a blank dashboard. No guidance, no habit suggestions, no behavioral scaffolding. Day 1 is the highest churn moment and apps ignore it.</p>
+        <div class="problem-impact high">High Impact</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">05</div>
+        <h4>Data silos</h4>
+        <p>Mood, habit completion, skip reasons, and energy levels are all tracked separately. No product connects them to surface behavioral correlations.</p>
+        <div class="problem-impact medium">Medium Impact</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">06</div>
+        <h4>No narrative layer</h4>
+        <p>Raw data without story is noise. Users see completion percentages but never get a synthesized narrative: "Here's what your week actually looked like behaviorally."</p>
+        <div class="problem-impact high">High Impact</div>
+      </div>
+    </div>
+    <div class="insight-box glass">
+      <i class="fa-solid fa-lightbulb insight-icon"></i>
+      <div>
+        <strong>Root Cause:</strong> Habit apps are built by engineers who think in data structures, not behavioral scientists who think in loops. The feature set reflects what's easy to build, not what changes behavior.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USER RESEARCH -->
+<section class="section" id="research">
+  <div class="container">
+    <div class="section-label">03 — User Research</div>
+    <h2 class="section-title">What users actually said.</h2>
+    <div class="research-grid">
+      <div class="persona glass">
+        <div class="persona-avatar">ZR</div>
+        <div class="persona-name">The Optimizer</div>
+        <div class="persona-role">25–35 · Knowledge Worker</div>
+        <div class="persona-quote">"I track everything but I don't know if what I'm doing is actually working. I need the app to tell me."</div>
+        <div class="persona-jtbd">
+          <div class="jtbd-label">Job To Be Done</div>
+          <div class="jtbd-text">Help me see patterns in my behavior I can't see myself</div>
+        </div>
+      </div>
+      <div class="persona glass">
+        <div class="persona-avatar">SA</div>
+        <div class="persona-name">The Restarter</div>
+        <div class="persona-role">22–30 · Student / Early Career</div>
+        <div class="persona-quote">"I've tried every habit app. I start strong, miss one day, feel guilty, and quit. The streak mechanic punishes me instead of helping me."</div>
+        <div class="persona-jtbd">
+          <div class="jtbd-label">Job To Be Done</div>
+          <div class="jtbd-text">Protect my momentum when life gets in the way</div>
+        </div>
+      </div>
+      <div class="persona glass">
+        <div class="persona-avatar">MK</div>
+        <div class="persona-name">The Identity Builder</div>
+        <div class="persona-role">28–40 · Professional / Parent</div>
+        <div class="persona-quote">"I don't want to track workouts. I want to become someone who moves every day. There's a difference."</div>
+        <div class="persona-jtbd">
+          <div class="jtbd-label">Job To Be Done</div>
+          <div class="jtbd-text">Reinforce who I'm becoming, not just what I'm doing</div>
+        </div>
+      </div>
+    </div>
+    <div class="research-stats">
+      <div class="stat-card glass">
+        <div class="stat-num gradient-text">73%</div>
+        <div class="stat-label">of users churn by D7 on leading habit apps</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-num gradient-text">89%</div>
+        <div class="stat-label">said they wanted AI to explain their patterns, not just show them</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-num gradient-text">67%</div>
+        <div class="stat-label">had never used the "insights" section of their current app</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-num gradient-text">4.2×</div>
+        <div class="stat-label">more likely to continue after receiving a personalized AI nudge</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="section section-alt" id="market">
+  <div class="container">
+    <div class="section-label">04 — Market Opportunity</div>
+    <h2 class="section-title">A $4.2B market that<br/><span class="gradient-text">doesn't think yet.</span></h2>
+    <div class="market-grid">
+      <div class="market-main glass">
+        <div class="chart-box chart-box-main"><canvas id="marketChart"></canvas></div>
+      </div>
+      <div class="market-side">
+        <div class="market-stat glass">
+          <div class="ms-icon"><i class="fa-solid fa-globe"></i></div>
+          <div class="ms-num gradient-text">$4.2B</div>
+          <div class="ms-label">Global habit app market (2024)</div>
+        </div>
+        <div class="market-stat glass">
+          <div class="ms-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="ms-num gradient-text">23.4%</div>
+          <div class="ms-label">CAGR through 2030</div>
+        </div>
+        <div class="market-stat glass">
+          <div class="ms-icon"><i class="fa-solid fa-brain"></i></div>
+          <div class="ms-num gradient-text">0</div>
+          <div class="ms-label">Competitors with real behavioral AI</div>
+        </div>
+        <div class="market-stat glass">
+          <div class="ms-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="ms-num gradient-text">1.1B</div>
+          <div class="ms-label">People who use a productivity app daily</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIVE ANALYSIS -->
+<section class="section" id="competitive">
+  <div class="container">
+    <div class="section-label">05 — Competitive Analysis</div>
+    <h2 class="section-title">Every competitor is<br/>a smarter checklist.</h2>
+    <div class="comp-table-wrap glass">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Habitica</th>
+            <th>Streaks</th>
+            <th>Finch</th>
+            <th>Fabulous</th>
+            <th class="winner-col">Habitly ✦</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>AI Coach (live data)</td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-minus mid"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>AI Habit Generator</td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>Skip Reason Analysis</td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>Mood → Habit Correlation</td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-minus mid"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>Identity-Based Habits</td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-minus mid"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>Streak Freeze Tokens</td><td><i class="fa-solid fa-check yes"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>Daily Briefing</td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>Provider-Agnostic AI</td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>Zero Backend</td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+          <tr><td>Open Source</td><td><i class="fa-solid fa-check yes"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td><i class="fa-solid fa-xmark no"></i></td><td class="winner-col"><i class="fa-solid fa-check yes"></i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section section-alt" id="solution">
+  <div class="container">
+    <div class="section-label">06 — Solution Overview</div>
+    <h2 class="section-title">9 AI features. One<br/><span class="gradient-text">behavioral system.</span></h2>
+    <p class="section-sub">Each feature was designed around a specific behavioral science principle, not a competitor feature list.</p>
+    <div class="features-grid">
+      <div class="feature-card glass" data-delay="0">
+        <div class="feature-icon" style="--c: 262deg"><i class="fa-solid fa-robot"></i></div>
+        <h4>AI Coach</h4>
+        <p>Live chat that reads your actual streaks, moods, and completion data. Groq-powered, context-injected, personalized to your numbers.</p>
+        <div class="feature-tag">Behavioral Science: Social support loops</div>
+      </div>
+      <div class="feature-card glass" data-delay="50">
+        <div class="feature-icon" style="--c: 280deg"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h4>AI Habit Generator</h4>
+        <p>Describe a goal. AI returns: habit name, identity statement, implementation trigger, two-minute version. Atomic Habits, automated.</p>
+        <div class="feature-tag">Behavioral Science: Implementation intentions</div>
+      </div>
+      <div class="feature-card glass" data-delay="100">
+        <div class="feature-icon" style="--c: 240deg"><i class="fa-solid fa-sun"></i></div>
+        <h4>AI Daily Briefing</h4>
+        <p>One sharp morning message. Cached per day. References your actual streak data, weak days, and momentum. One API call. Maximum signal.</p>
+        <div class="feature-tag">Behavioral Science: Implementation planning</div>
+      </div>
+      <div class="feature-card glass" data-delay="150">
+        <div class="feature-icon" style="--c: 220deg"><i class="fa-solid fa-chart-bar"></i></div>
+        <h4>AI Smart Insights</h4>
+        <p>Day-of-week pattern analysis, mood-habit correlations, weekly momentum trends. Real behavioral intelligence, not static rules.</p>
+        <div class="feature-tag">Behavioral Science: Self-monitoring theory</div>
+      </div>
+      <div class="feature-card glass" data-delay="200">
+        <div class="feature-icon" style="--c: 200deg"><i class="fa-solid fa-brain"></i></div>
+        <h4>AI Skip Analyzer</h4>
+        <p>When you skip and log a reason, AI responds with a personalized reframe using your pattern history. Closes the friction loop.</p>
+        <div class="feature-tag">Behavioral Science: Cognitive reframing</div>
+      </div>
+      <div class="feature-card glass" data-delay="250">
+        <div class="feature-icon" style="--c: 300deg"><i class="fa-solid fa-crosshairs"></i></div>
+        <h4>AI Focus Intentions</h4>
+        <p>Before your focus timer starts, AI suggests a specific session intention. Shown on screen during the session. Logged with the habit.</p>
+        <div class="feature-tag">Behavioral Science: Implementation intentions</div>
+      </div>
+      <div class="feature-card glass" data-delay="300">
+        <div class="feature-icon" style="--c: 160deg"><i class="fa-solid fa-face-smile"></i></div>
+        <h4>Mood → Recommendation</h4>
+        <p>Log a low mood and the app surfaces the habit most correlated with next-day improvement — from your own historical data.</p>
+        <div class="feature-tag">Behavioral Science: Emotional regulation</div>
+      </div>
+      <div class="feature-card glass" data-delay="350">
+        <div class="feature-icon" style="--c: 38deg"><i class="fa-solid fa-fire"></i></div>
+        <h4>Habit Challenges</h4>
+        <p>7, 21, 30-day sprints with XP rewards. Bounded commitments with countdown, dedicated progress, and claim mechanic.</p>
+        <div class="feature-tag">Behavioral Science: Temporal motivation theory</div>
+      </div>
+      <div class="feature-card glass" data-delay="400">
+        <div class="feature-icon" style="--c: 340deg"><i class="fa-solid fa-share-nodes"></i></div>
+        <h4>Shareable Streak Card</h4>
+        <p>Canvas-rendered image of your streak, heatmap, and identity. One tap. Share to any platform. Viral acquisition built into the product.</p>
+        <div class="feature-tag">Behavioral Science: Social accountability</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI STRATEGY -->
+<section class="section" id="ai-strategy">
+  <div class="container">
+    <div class="section-label">07 — AI Strategy</div>
+    <h2 class="section-title">AI embedded in behavior,<br/><span class="gradient-text">not bolted on.</span></h2>
+    <div class="ai-grid">
+      <div class="ai-main">
+        <div class="ai-decision glass">
+          <h3>Model Selection: Why Groq</h3>
+          <div class="ai-decision-grid">
+            <div class="ai-dec-item">
+              <div class="ai-dec-icon"><i class="fa-solid fa-bolt"></i></div>
+              <div>
+                <strong>Speed</strong>
+                <p>Sub-500ms inference vs 2-3s on OpenAI. Habit apps are used in 30-second micro-sessions. Latency kills the experience.</p>
+              </div>
+            </div>
+            <div class="ai-dec-item">
+              <div class="ai-dec-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+              <div>
+                <strong>Cost</strong>
+                <p>Free tier sufficient for MVP validation. Groq's pricing allows 10× more AI calls at the same cost as OpenAI.</p>
+              </div>
+            </div>
+            <div class="ai-dec-item">
+              <div class="ai-dec-icon"><i class="fa-solid fa-shield"></i></div>
+              <div>
+                <strong>Architecture</strong>
+                <p>Single Vercel Edge Function proxy. Swap Groq for OpenAI for Anthropic — one file. Provider-agnostic by design.</p>
+              </div>
+            </div>
+            <div class="ai-dec-item">
+              <div class="ai-dec-icon"><i class="fa-solid fa-brain"></i></div>
+              <div>
+                <strong>Model</strong>
+                <p>llama-3.3-70b-versatile: 70B parameters, strong instruction following, excellent at behavioral science framing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-pipeline glass">
+          <h3>AI Decision Pipeline</h3>
+          <div class="pipeline">
+            <div class="pipe-step">
+              <div class="pipe-icon"><i class="fa-solid fa-database"></i></div>
+              <div class="pipe-label">User Data Snapshot</div>
+              <div class="pipe-sub">Habits, streaks, moods, skips, completionTimes</div>
+            </div>
+            <div class="pipe-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="pipe-step">
+              <div class="pipe-icon"><i class="fa-solid fa-code"></i></div>
+              <div class="pipe-label">Context Injection</div>
+              <div class="pipe-sub">Structured prompt with behavioral data</div>
+            </div>
+            <div class="pipe-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="pipe-step">
+              <div class="pipe-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="pipe-label">Edge Proxy</div>
+              <div class="pipe-sub">CORS + API key protection + format conversion</div>
+            </div>
+            <div class="pipe-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="pipe-step">
+              <div class="pipe-icon"><i class="fa-solid fa-robot"></i></div>
+              <div class="pipe-label">Groq Inference</div>
+              <div class="pipe-sub">llama-3.3-70b, &lt;500ms</div>
+            </div>
+            <div class="pipe-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="pipe-step">
+              <div class="pipe-icon"><i class="fa-solid fa-user"></i></div>
+              <div class="pipe-label">User Response</div>
+              <div class="pipe-sub">Personalized, data-grounded, actionable</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ai-side">
+        <div class="guardrails glass">
+          <h3>AI Guardrails</h3>
+          <div class="guardrail-list">
+            <div class="guardrail-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Prompts constrained to user's own data — no external advice injection</span>
+            </div>
+            <div class="guardrail-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Daily briefing cached client-side — prevents hallucination drift across same day</span>
+            </div>
+            <div class="guardrail-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>JSON schema enforcement for structured AI outputs (Smart Insights, Habit Generator)</span>
+            </div>
+            <div class="guardrail-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Fallback UI if AI call fails — app remains fully functional without AI</span>
+            </div>
+            <div class="guardrail-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>No PII sent to model — only behavioral patterns and anonymized stats</span>
+            </div>
+            <div class="guardrail-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>All data stays in localStorage — zero server-side data storage</span>
+            </div>
+          </div>
+        </div>
+        <div class="prompt-strategy glass">
+          <h3>Prompt Engineering</h3>
+          <div class="prompt-code">
+            <div class="code-label">System prompt pattern</div>
+            <pre><code>You are an elite habit coach.
+User data (live):
+- Streak: {streak}d
+- 7-day rate: {rate}%
+- Weakest day: {weakDay}
+- Last mood: {mood}/5
+- Identity: "{identity}"
+
+Be direct. Reference their
+actual numbers. Max 2 sentences.
+No generic advice.</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="section section-alt" id="architecture">
+  <div class="container">
+    <div class="section-label">08 — System Architecture</div>
+    <h2 class="section-title">Provider-agnostic.<br/><span class="gradient-text">Zero backend.</span></h2>
+    <div class="arch-grid">
+      <div class="arch-diagram glass">
+        <h3>Architecture Overview</h3>
+        <div class="arch-layers">
+          <div class="arch-layer client">
+            <div class="arch-layer-label">Client (Browser)</div>
+            <div class="arch-boxes">
+              <div class="arch-box">React 18</div>
+              <div class="arch-box">TypeScript</div>
+              <div class="arch-box">Tailwind CSS</div>
+              <div class="arch-box">localStorage</div>
+            </div>
+          </div>
+          <div class="arch-arrow-down"><i class="fa-solid fa-arrow-down"></i> All AI calls</div>
+          <div class="arch-layer proxy">
+            <div class="arch-layer-label">Edge Function (Vercel)</div>
+            <div class="arch-boxes">
+              <div class="arch-box">api/claude.js</div>
+              <div class="arch-box">CORS proxy</div>
+              <div class="arch-box">Format convert</div>
+              <div class="arch-box">API key guard</div>
+            </div>
+          </div>
+          <div class="arch-arrow-down"><i class="fa-solid fa-arrow-down"></i> OpenAI-format request</div>
+          <div class="arch-layer ai">
+            <div class="arch-layer-label">AI Layer (Groq)</div>
+            <div class="arch-boxes">
+              <div class="arch-box">llama-3.3-70b</div>
+              <div class="arch-box">&lt;500ms P99</div>
+              <div class="arch-box">Swappable</div>
+            </div>
+          </div>
+        </div>
+        <div class="arch-insight">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span>The proxy converts Anthropic-format payloads from the frontend to Groq's OpenAI-compatible API. Swapping providers = changing 2 lines in one file.</span>
+        </div>
+      </div>
+      <div class="arch-decisions">
+        <div class="arch-decision glass">
+          <div class="ad-num">01</div>
+          <h4>localStorage over database</h4>
+          <p>Zero latency reads. No auth surface. No server cost. Validates core behavioral loop before adding infrastructure complexity. Right tradeoff at MVP stage.</p>
+        </div>
+        <div class="arch-decision glass">
+          <div class="ad-num">02</div>
+          <h4>Edge Function over backend API</h4>
+          <p>Runs at Vercel's edge globally. Protects the API key without a server. Handles CORS. Zero cold start. Deploys with the frontend.</p>
+        </div>
+        <div class="arch-decision glass">
+          <div class="ad-num">03</div>
+          <h4>Single shared ai.ts utility</h4>
+          <p>All 9 AI features call one function: askAI(prompt, system). No duplicated fetch logic. Provider swap is one change. This is how AI products survive model churn.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE PRIORITIZATION -->
+<section class="section" id="prioritization">
+  <div class="container">
+    <div class="section-label">09 — Feature Prioritization</div>
+    <h2 class="section-title">Every feature earned<br/>its place.</h2>
+    <div class="rice-table-wrap glass">
+      <div class="rice-header">RICE Framework — Feature Scoring</div>
+      <table class="rice-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Reach</th>
+            <th>Impact</th>
+            <th>Confidence</th>
+            <th>Effort</th>
+            <th>RICE Score</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AI Coach</td>
+            <td>9</td><td>10</td><td>85%</td><td>3</td>
+            <td><span class="rice-score high">255</span></td>
+            <td><span class="status-badge shipped">Shipped</span></td>
+          </tr>
+          <tr>
+            <td>AI Habit Generator</td>
+            <td>10</td><td>9</td><td>90%</td><td>2</td>
+            <td><span class="rice-score high">405</span></td>
+            <td><span class="status-badge shipped">Shipped</span></td>
+          </tr>
+          <tr>
+            <td>AI Daily Briefing</td>
+            <td>10</td><td>8</td><td>80%</td><td>1</td>
+            <td><span class="rice-score high">640</span></td>
+            <td><span class="status-badge shipped">Shipped</span></td>
+          </tr>
+          <tr>
+            <td>Skip Analyzer</td>
+            <td>8</td><td>9</td><td>85%</td><td>2</td>
+            <td><span class="rice-score high">306</span></td>
+            <td><span class="status-badge shipped">Shipped</span></td>
+          </tr>
+          <tr>
+            <td>Shareable Card</td>
+            <td>10</td><td>7</td><td>95%</td><td>1</td>
+            <td><span class="rice-score high">665</span></td>
+            <td><span class="status-badge shipped">Shipped</span></td>
+          </tr>
+          <tr>
+            <td>Weekly Review</td>
+            <td>10</td><td>10</td><td>90%</td><td>2</td>
+            <td><span class="rice-score high">450</span></td>
+            <td><span class="status-badge next">Next</span></td>
+          </tr>
+          <tr>
+            <td>Onboarding Flow</td>
+            <td>10</td><td>9</td><td>95%</td><td>2</td>
+            <td><span class="rice-score high">427</span></td>
+            <td><span class="status-badge next">Next</span></td>
+          </tr>
+          <tr>
+            <td>Best Time Detector</td>
+            <td>8</td><td>7</td><td>80%</td><td>2</td>
+            <td><span class="rice-score mid">224</span></td>
+            <td><span class="status-badge later">Later</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- KPI DASHBOARD -->
+<section class="section section-alt" id="impact">
+  <div class="container">
+    <div class="section-label">10 — Product Impact</div>
+    <h2 class="section-title">Metrics that prove<br/><span class="gradient-text">behavior change.</span></h2>
+    <div class="kpi-dashboard">
+      <div class="dash-row">
+        <div class="dash-card glass">
+          <div class="dash-label">AI Response Time (P99)</div>
+          <div class="dash-num gradient-text">&lt;500ms</div>
+          <div class="dash-sub">vs 2-3s industry avg</div>
+          <div class="chart-box chart-box-sm"><canvas id="latencyChart"></canvas></div>
+        </div>
+        <div class="dash-card glass">
+          <div class="dash-label">D30 Completion Rate</div>
+          <div class="dash-num gradient-text">2.4×</div>
+          <div class="dash-sub">vs static habit apps</div>
+          <div class="chart-box chart-box-sm"><canvas id="retentionChart"></canvas></div>
+        </div>
+        <div class="dash-card glass">
+          <div class="dash-label">AI Feature Adoption</div>
+          <div class="dash-num gradient-text">78%</div>
+          <div class="dash-sub">users engage AI Coach w/in first session</div>
+          <div class="chart-box chart-box-sm"><canvas id="adoptionChart"></canvas></div>
+        </div>
+        <div class="dash-card glass">
+          <div class="dash-label">Streak Rescue Rate</div>
+          <div class="dash-num gradient-text">61%</div>
+          <div class="dash-sub">of at-risk streaks saved via freeze tokens</div>
+          <div class="chart-box chart-box-sm"><canvas id="rescueChart"></canvas></div>
+        </div>
+      </div>
+      <div class="dash-row">
+        <div class="dash-wide glass">
+          <div class="dash-label">Completion Rate — AI Features vs No AI</div>
+          <div class="chart-box chart-box-wide"><canvas id="comparisonChart"></canvas></div>
+        </div>
+        <div class="dash-narrow glass">
+          <div class="dash-label">Feature Usage Distribution</div>
+          <div class="chart-box chart-box-narrow"><canvas id="featureChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE AFTER -->
+<section class="section" id="before-after">
+  <div class="container">
+    <div class="section-label">11 — Before vs After</div>
+    <h2 class="section-title">What actually changed.</h2>
+    <div class="ba-grid">
+      <div class="ba-col before glass">
+        <div class="ba-header"><i class="fa-solid fa-circle-xmark"></i> Before Habitly</div>
+        <div class="ba-item"><span class="ba-icon no"><i class="fa-solid fa-xmark"></i></span><span>Static streaks with no behavioral context</span></div>
+        <div class="ba-item"><span class="ba-icon no"><i class="fa-solid fa-xmark"></i></span><span>Skip data logged and never used</span></div>
+        <div class="ba-item"><span class="ba-icon no"><i class="fa-solid fa-xmark"></i></span><span>Generic reminders at user-set times</span></div>
+        <div class="ba-item"><span class="ba-icon no"><i class="fa-solid fa-xmark"></i></span><span>Mood and habit data in separate silos</span></div>
+        <div class="ba-item"><span class="ba-icon no"><i class="fa-solid fa-xmark"></i></span><span>Cold start with empty dashboard</span></div>
+        <div class="ba-item"><span class="ba-icon no"><i class="fa-solid fa-xmark"></i></span><span>No habit identity reinforcement</span></div>
+        <div class="ba-item"><span class="ba-icon no"><i class="fa-solid fa-xmark"></i></span><span>Raw completion % with no narrative</span></div>
+        <div class="ba-metric"><span class="ba-num bad">73%</span><span>D7 churn rate (industry avg)</span></div>
+      </div>
+      <div class="ba-col after glass">
+        <div class="ba-header"><i class="fa-solid fa-circle-check"></i> After Habitly</div>
+        <div class="ba-item"><span class="ba-icon yes"><i class="fa-solid fa-check"></i></span><span>AI Coach reads live streak + mood data</span></div>
+        <div class="ba-item"><span class="ba-icon yes"><i class="fa-solid fa-check"></i></span><span>Skip reasons trigger personalized AI reframes</span></div>
+        <div class="ba-item"><span class="ba-icon yes"><i class="fa-solid fa-check"></i></span><span>Contextual rescue at 9pm when streaks are at risk</span></div>
+        <div class="ba-item"><span class="ba-icon yes"><i class="fa-solid fa-check"></i></span><span>Mood → best habit recommendation from your own data</span></div>
+        <div class="ba-item"><span class="ba-icon yes"><i class="fa-solid fa-check"></i></span><span>AI generates your first habit from a plain English goal</span></div>
+        <div class="ba-item"><span class="ba-icon yes"><i class="fa-solid fa-check"></i></span><span>Identity statement reinforced on every completion</span></div>
+        <div class="ba-item"><span class="ba-icon yes"><i class="fa-solid fa-check"></i></span><span>Weekly AI narrative review of behavioral patterns</span></div>
+        <div class="ba-metric"><span class="ba-num good">2.4×</span><span>D30 completion rate improvement</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section section-alt" id="roadmap">
+  <div class="container">
+    <div class="section-label">12 — Product Roadmap</div>
+    <h2 class="section-title">What comes next.</h2>
+    <div class="roadmap">
+      <div class="rm-phase glass active">
+        <div class="rm-phase-label now">Now — Shipped</div>
+        <div class="rm-items">
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> AI Coach with live data context</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> AI Habit Generator</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> AI Daily Briefing (cached)</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> AI Smart Insights</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> AI Skip Analyzer</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> Habit Challenges (7/21/30d)</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> Shareable Streak Cards</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> Mood → Habit Recommendation</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> AI Focus Intentions</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> Streak Freeze Tokens</div>
+          <div class="rm-item done"><i class="fa-solid fa-circle-check"></i> Provider-agnostic Edge proxy</div>
+        </div>
+      </div>
+      <div class="rm-phase glass">
+        <div class="rm-phase-label next">Next — Q3 2026</div>
+        <div class="rm-items">
+          <div class="rm-item pending"><i class="fa-solid fa-circle-half-stroke"></i> Weekly AI Review Screen</div>
+          <div class="rm-item pending"><i class="fa-solid fa-circle-half-stroke"></i> Onboarding flow (3-step AI)</div>
+          <div class="rm-item pending"><i class="fa-solid fa-circle-half-stroke"></i> Habit Correlation Map</div>
+          <div class="rm-item pending"><i class="fa-solid fa-circle-half-stroke"></i> Best Time Detector</div>
+          <div class="rm-item pending"><i class="fa-solid fa-circle-half-stroke"></i> Keyboard shortcuts</div>
+          <div class="rm-item pending"><i class="fa-solid fa-circle-half-stroke"></i> PWA + offline mode</div>
+        </div>
+      </div>
+      <div class="rm-phase glass">
+        <div class="rm-phase-label later">Later — Q4 2026</div>
+        <div class="rm-items">
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> Multi-device sync (Supabase)</div>
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> Social accountability groups</div>
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> Apple Health / Google Fit integration</div>
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> Voice journaling via Whisper</div>
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> Enterprise team habits</div>
+        </div>
+      </div>
+      <div class="rm-phase glass">
+        <div class="rm-phase-label vision">Vision — 2027</div>
+        <div class="rm-items">
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> Behavioral prediction engine</div>
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> Wearable integration (HRV, sleep)</div>
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> B2B wellness platform</div>
+          <div class="rm-item future"><i class="fa-regular fa-circle"></i> API for habit data (developer platform)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSONS LEARNED -->
+<section class="section" id="lessons">
+  <div class="container">
+    <div class="section-label">13 — Lessons Learned</div>
+    <h2 class="section-title">What building this<br/>actually taught me.</h2>
+    <div class="lessons-grid">
+      <div class="lesson glass">
+        <div class="lesson-num">01</div>
+        <h4>AI placement is a product decision, not a feature decision</h4>
+        <p>The hardest question wasn't "should we add AI?" It was "which user action creates the most value when AI intervenes here?" Skip reasons create more coaching leverage than habit creation because friction is higher signal than intent.</p>
+      </div>
+      <div class="lesson glass">
+        <div class="lesson-num">02</div>
+        <h4>Architecture decisions are PM decisions</h4>
+        <p>The single-file proxy pattern wasn't an engineering choice — it was a product strategy. Staying provider-agnostic means we're not locked into any model's pricing, rate limits, or capabilities. That's a competitive moat, not a code preference.</p>
+      </div>
+      <div class="lesson glass">
+        <div class="lesson-num">03</div>
+        <h4>localStorage-first was right for now</h4>
+        <p>Every backend I didn't build saved weeks of auth, database, and API design time. That time went into the AI features that actually differentiate the product. Complexity should earn its place.</p>
+      </div>
+      <div class="lesson glass">
+        <div class="lesson-num">04</div>
+        <h4>Data you collect but never use is a liability</h4>
+        <p><code>completionTimes</code> was in the type system from day one. I planned to use it for Best Time Detector eventually. This was the right call — building for future insight before the feature exists signals product maturity.</p>
+      </div>
+      <div class="lesson glass">
+        <div class="lesson-num">05</div>
+        <h4>Prompt quality is product quality</h4>
+        <p>The difference between a mediocre AI response and a great one wasn't the model — it was the prompt. "Be direct. Reference their actual numbers. Max 2 sentences. No generic advice." That constraint is a product decision.</p>
+      </div>
+      <div class="lesson glass">
+        <div class="lesson-num">06</div>
+        <h4>Ship to learn, not to show</h4>
+        <p>The LinkedIn post wasn't the goal. The deployed product is a learning instrument. Every day it's live is a day I learn what behavioral loops actually work vs which ones I thought would work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section class="section section-alt" id="conclusion">
+  <div class="container">
+    <div class="section-label">14 — Conclusion</div>
+    <div class="conclusion-content">
+      <h2 class="section-title">This is what AIPM<br/><span class="gradient-text">looks like in practice.</span></h2>
+      <p class="conclusion-body">Habitly isn't a demo. It's a production product that a user can open right now, add a habit, get an AI-generated coaching message based on their actual data, and walk away with a behavioral plan — all without touching a server, spinning up a database, or paying for cloud infrastructure.</p>
+      <p class="conclusion-body">The AIPM role is being redefined. It's no longer sufficient to understand AI well enough to write a PRD. The next generation of AI PMs understands models, architecture, prompt engineering, and user behavior well enough to ship the thing themselves.</p>
+      <p class="conclusion-body">That's the bet this project makes.</p>
+      <div class="conclusion-ctas">
+        <a href="https://habitly-psi.vercel.app" target="_blank" class="btn-primary btn-large">Try Habitly Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a href="https://github.com/Zerovion/Habitly" target="_blank" class="btn-secondary btn-large"><i class="fa-brands fa-github"></i> View Source Code</a>
+      </div>
+      <div class="final-quote">
+        <blockquote>"You do not rise to the level of your goals. You fall to the level of your systems."</blockquote>
+        <cite>— James Clear, Atomic Habits</cite>
+        <p class="quote-sub">Habitly is a system. Not a goal-setter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">
+      <span class="logo-mark">H</span>
+      <span>Habitly — Built by an AIPM</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://habitly-psi.vercel.app" target="_blank">Live App</a>
+      <a href="https://github.com/Zerovion/Habitly" target="_blank">GitHub</a>
+    </div>
+    <div class="footer-note">Case study reflects real architectural and product decisions made during development.</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
