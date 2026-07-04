@@ -24,4 +24,4 @@ Then visit `localhost:8000`.
 
 ## Why this exists
 
-Habitly's README documents the product. This documents the *process* — the decisions, tradeoffs, and reasoning behind building it, written up the way I'd walk someone through it in an interview.
+Habitly's README documents the product. This documents the *process* the decisions, tradeoffs, and reasoning behind building it, written up the way I'd walk someone through it in an interview.
