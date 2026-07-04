@@ -94,8 +94,8 @@
 <section class="section" id="summary">
   <div class="container">
     <div class="section-label">01 — Executive Summary</div>
-    <h2 class="section-title">The problem isn't motivation.<br/>It's intelligence.</h2>
-    <p class="section-sub">Habit apps have existed for a decade. None of them think. Habitly is the first habit system that reasons about your behavior — using your actual data, not generic advice.</p>
+    <h2 class="section-title">Motivation was never the problem.<br/>Understanding behavior was.</h2>
+    <p class="section-sub">Habit apps have been around for a decade and most still don't do much more than count. Habitly reasons about your behavior using your own data instead of handing you generic advice.</p>
     <div class="summary-grid">
       <div class="summary-card glass">
         <div class="summary-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
@@ -110,7 +110,7 @@
       <div class="summary-card glass">
         <div class="summary-icon"><i class="fa-solid fa-bullseye"></i></div>
         <h3>North Star Metric</h3>
-        <p>D30 habit completion rate. Not DAU, not sessions. The only metric that proves the product is actually changing behavior — the stated purpose of every habit app.</p>
+        <p>D30 habit completion rate. DAU and session counts don't tell you if someone actually built a habit — completion rate does, which is the whole point of a habit app.</p>
       </div>
       <div class="summary-card glass">
         <div class="summary-icon"><i class="fa-solid fa-chart-line"></i></div>
@@ -168,7 +168,7 @@
     <div class="insight-box glass">
       <i class="fa-solid fa-lightbulb insight-icon"></i>
       <div>
-        <strong>Root Cause:</strong> Habit apps are built by engineers who think in data structures, not behavioral scientists who think in loops. The feature set reflects what's easy to build, not what changes behavior.
+        <strong>Root Cause:</strong> Most habit apps get built by engineers optimizing for what's easy to ship, not by anyone thinking hard about behavioral loops. The feature set shows it.
       </div>
     </div>
   </div>
@@ -359,7 +359,7 @@
       <div class="feature-card glass" data-delay="400">
         <div class="feature-icon" style="--c: 340deg"><i class="fa-solid fa-share-nodes"></i></div>
         <h4>Shareable Streak Card</h4>
-        <p>Canvas-rendered image of your streak, heatmap, and identity. One tap. Share to any platform. Viral acquisition built into the product.</p>
+        <p>Renders your streak, heatmap, and identity as an image right in the browser. One tap to share anywhere — it doubles as free acquisition.</p>
         <div class="feature-tag">Behavioral Science: Social accountability</div>
       </div>
     </div>
@@ -550,7 +550,7 @@ No generic advice.</code></pre>
         <div class="arch-decision glass">
           <div class="ad-num">03</div>
           <h4>Single shared ai.ts utility</h4>
-          <p>All 9 AI features call one function: askAI(prompt, system). No duplicated fetch logic. Provider swap is one change. This is how AI products survive model churn.</p>
+          <p>All 9 AI features call one function: askAI(prompt, system). No duplicated fetch logic, and swapping providers means changing one function instead of nine call sites.</p>
         </div>
       </div>
     </div>
@@ -779,7 +779,7 @@ No generic advice.</code></pre>
       <div class="lesson glass">
         <div class="lesson-num">02</div>
         <h4>Architecture decisions are PM decisions</h4>
-        <p>The single-file proxy pattern wasn't an engineering choice — it was a product strategy. Staying provider-agnostic means we're not locked into any model's pricing, rate limits, or capabilities. That's a competitive moat, not a code preference.</p>
+        <p>The single-file proxy pattern wasn't really an engineering choice, it was a hedge against vendor risk. Staying provider-agnostic means I'm not stuck with whatever pricing or rate limits one model provider decides to set.</p>
       </div>
       <div class="lesson glass">
         <div class="lesson-num">03</div>
@@ -789,7 +789,7 @@ No generic advice.</code></pre>
       <div class="lesson glass">
         <div class="lesson-num">04</div>
         <h4>Data you collect but never use is a liability</h4>
-        <p><code>completionTimes</code> was in the type system from day one. I planned to use it for Best Time Detector eventually. This was the right call — building for future insight before the feature exists signals product maturity.</p>
+        <p><code>completionTimes</code> was in the type system from day one, even though nothing used it yet — I knew Best Time Detector would need it eventually. Turned out to be worth the extra field.</p>
       </div>
       <div class="lesson glass">
         <div class="lesson-num">05</div>
@@ -811,8 +811,8 @@ No generic advice.</code></pre>
     <div class="section-label">14 — Conclusion</div>
     <div class="conclusion-content">
       <h2 class="section-title">This is what AIPM<br/><span class="gradient-text">looks like in practice.</span></h2>
-      <p class="conclusion-body">Habitly isn't a demo. It's a production product that a user can open right now, add a habit, get an AI-generated coaching message based on their actual data, and walk away with a behavioral plan — all without touching a server, spinning up a database, or paying for cloud infrastructure.</p>
-      <p class="conclusion-body">The AIPM role is being redefined. It's no longer sufficient to understand AI well enough to write a PRD. The next generation of AI PMs understands models, architecture, prompt engineering, and user behavior well enough to ship the thing themselves.</p>
+      <p class="conclusion-body">This isn't a mockup or a Figma prototype — it's live right now. Open it, add a habit, and the AI Coach responds using your real streak and mood data, not a canned message. No server, no database, no cloud bill behind any of it.</p>
+      <p class="conclusion-body">Knowing enough AI to write a good PRD isn't enough anymore. I think the PMs who matter most in this next wave are the ones who understand models, architecture, and prompt design well enough to just build the thing.</p>
       <p class="conclusion-body">That's the bet this project makes.</p>
       <div class="conclusion-ctas">
         <a href="https://habitly-psi.vercel.app" target="_blank" class="btn-primary btn-large">Try Habitly Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
