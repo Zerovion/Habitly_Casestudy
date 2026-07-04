@@ -54,7 +54,7 @@
       Most PMs write PRDs.<br/>
       <span class="gradient-text">I ship products.</span>
     </h1>
-    <p class="hero-sub">Habitly is an AI-native habit intelligence system — not a checklist with a chatbot bolted on. Built end-to-end to prove the evolution of the AI Product Manager: from pure spec writers to autonomous system builders.</p>
+    <p class="hero-sub">Habitly is an AI-native habit intelligence system, not a checklist with a chatbot bolted on. Built end-to-end to prove the evolution of the AI Product Manager, from pure spec writers to autonomous system builders.</p>
     <div class="hero-meta">
       <div class="meta-item"><i class="fa-solid fa-layer-group"></i><span>React 18 + TypeScript</span></div>
       <div class="meta-item"><i class="fa-solid fa-brain"></i><span>Groq llama-3.3-70b</span></div>
@@ -110,7 +110,7 @@
       <div class="summary-card glass">
         <div class="summary-icon"><i class="fa-solid fa-bullseye"></i></div>
         <h3>North Star Metric</h3>
-        <p>D30 habit completion rate. DAU and session counts don't tell you if someone actually built a habit — completion rate does, which is the whole point of a habit app.</p>
+        <p>D30 habit completion rate. DAU and session counts don't tell you if someone actually built a habit. Completion rate does, and that's the whole point of a habit app.</p>
       </div>
       <div class="summary-card glass">
         <div class="summary-icon"><i class="fa-solid fa-chart-line"></i></div>
@@ -126,7 +126,7 @@
   <div class="container">
     <div class="section-label">02 — Problem Discovery</div>
     <h2 class="section-title">Habit apps have a<br/><span class="gradient-text">thinking problem.</span></h2>
-    <p class="section-sub">After analyzing the top 12 habit apps, interviewing 30+ users, and reviewing behavioral science literature — the pattern was clear.</p>
+    <p class="section-sub">After analyzing the top 12 habit apps, interviewing 30+ users, and reviewing behavioral science literature, the pattern was clear.</p>
     <div class="problem-grid">
       <div class="problem-card">
         <div class="problem-num">01</div>
@@ -143,7 +143,7 @@
       <div class="problem-card">
         <div class="problem-num">03</div>
         <h4>Identity-free habits</h4>
-        <p>Apps track actions, not identity. James Clear's core insight — habits are identity votes — is universally ignored. Users do habits, they don't become them.</p>
+        <p>Apps track actions, not identity. James Clear's core insight, that habits are identity votes, is universally ignored. Users do habits instead of becoming them.</p>
         <div class="problem-impact medium">Medium Impact</div>
       </div>
       <div class="problem-card">
@@ -347,7 +347,7 @@
       <div class="feature-card glass" data-delay="300">
         <div class="feature-icon" style="--c: 160deg"><i class="fa-solid fa-face-smile"></i></div>
         <h4>Mood → Recommendation</h4>
-        <p>Log a low mood and the app surfaces the habit most correlated with next-day improvement — from your own historical data.</p>
+        <p>Log a low mood and the app surfaces the habit most correlated with next-day improvement, based on your own historical data.</p>
         <div class="feature-tag">Behavioral Science: Emotional regulation</div>
       </div>
       <div class="feature-card glass" data-delay="350">
@@ -359,7 +359,7 @@
       <div class="feature-card glass" data-delay="400">
         <div class="feature-icon" style="--c: 340deg"><i class="fa-solid fa-share-nodes"></i></div>
         <h4>Shareable Streak Card</h4>
-        <p>Renders your streak, heatmap, and identity as an image right in the browser. One tap to share anywhere — it doubles as free acquisition.</p>
+        <p>Renders your streak, heatmap, and identity as an image right in the browser. One tap to share anywhere, and it doubles as free acquisition.</p>
         <div class="feature-tag">Behavioral Science: Social accountability</div>
       </div>
     </div>
@@ -394,7 +394,7 @@
               <div class="ai-dec-icon"><i class="fa-solid fa-shield"></i></div>
               <div>
                 <strong>Architecture</strong>
-                <p>Single Vercel Edge Function proxy. Swap Groq for OpenAI for Anthropic — one file. Provider-agnostic by design.</p>
+                <p>Single Vercel Edge Function proxy. Swapping Groq for OpenAI or Anthropic only touches one file. Provider-agnostic by design.</p>
               </div>
             </div>
             <div class="ai-dec-item">
@@ -447,11 +447,11 @@
           <div class="guardrail-list">
             <div class="guardrail-item">
               <i class="fa-solid fa-circle-check"></i>
-              <span>Prompts constrained to user's own data — no external advice injection</span>
+              <span>Prompts constrained to user's own data, no external advice injection</span>
             </div>
             <div class="guardrail-item">
               <i class="fa-solid fa-circle-check"></i>
-              <span>Daily briefing cached client-side — prevents hallucination drift across same day</span>
+              <span>Daily briefing cached client-side to prevent hallucination drift across the same day</span>
             </div>
             <div class="guardrail-item">
               <i class="fa-solid fa-circle-check"></i>
@@ -459,15 +459,15 @@
             </div>
             <div class="guardrail-item">
               <i class="fa-solid fa-circle-check"></i>
-              <span>Fallback UI if AI call fails — app remains fully functional without AI</span>
+              <span>Fallback UI if AI call fails, app remains fully functional without AI</span>
             </div>
             <div class="guardrail-item">
               <i class="fa-solid fa-circle-check"></i>
-              <span>No PII sent to model — only behavioral patterns and anonymized stats</span>
+              <span>No PII sent to model, only behavioral patterns and anonymized stats</span>
             </div>
             <div class="guardrail-item">
               <i class="fa-solid fa-circle-check"></i>
-              <span>All data stays in localStorage — zero server-side data storage</span>
+              <span>All data stays in localStorage, so there's zero server-side data storage</span>
             </div>
           </div>
         </div>
@@ -789,12 +789,12 @@ No generic advice.</code></pre>
       <div class="lesson glass">
         <div class="lesson-num">04</div>
         <h4>Data you collect but never use is a liability</h4>
-        <p><code>completionTimes</code> was in the type system from day one, even though nothing used it yet — I knew Best Time Detector would need it eventually. Turned out to be worth the extra field.</p>
+        <p><code>completionTimes</code> was in the type system from day one, even though nothing used it yet. I knew Best Time Detector would need it eventually, and it turned out to be worth the extra field.</p>
       </div>
       <div class="lesson glass">
         <div class="lesson-num">05</div>
         <h4>Prompt quality is product quality</h4>
-        <p>The difference between a mediocre AI response and a great one wasn't the model — it was the prompt. "Be direct. Reference their actual numbers. Max 2 sentences. No generic advice." That constraint is a product decision.</p>
+        <p>The difference between a mediocre AI response and a great one had nothing to do with the model. It came down to the prompt. "Be direct. Reference their actual numbers. Max 2 sentences. No generic advice." That constraint is a product decision.</p>
       </div>
       <div class="lesson glass">
         <div class="lesson-num">06</div>
@@ -811,7 +811,7 @@ No generic advice.</code></pre>
     <div class="section-label">14 — Conclusion</div>
     <div class="conclusion-content">
       <h2 class="section-title">This is what AIPM<br/><span class="gradient-text">looks like in practice.</span></h2>
-      <p class="conclusion-body">This isn't a mockup or a Figma prototype — it's live right now. Open it, add a habit, and the AI Coach responds using your real streak and mood data, not a canned message. No server, no database, no cloud bill behind any of it.</p>
+      <p class="conclusion-body">This isn't a mockup or a Figma prototype. It's live right now, open it, add a habit, and the AI Coach responds using your real streak and mood data instead of a canned message. No server, no database, no cloud bill behind any of it.</p>
       <p class="conclusion-body">Knowing enough AI to write a good PRD isn't enough anymore. I think the PMs who matter most in this next wave are the ones who understand models, architecture, and prompt design well enough to just build the thing.</p>
       <p class="conclusion-body">That's the bet this project makes.</p>
       <div class="conclusion-ctas">
